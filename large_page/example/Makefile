@@ -1,7 +1,8 @@
-CPPFLAGS=-O3 -std=c++11 -D_FORTIFY_SOURCE=2 -fsanitize=address -z noexecstack -z relro -z now -fstack-protector -Wformat -Wformat-security -Wall
+CPPFLAGS=-O3 -std=c++11 -z noexecstack -z relro -z now -Wformat -Wformat-security -Wall
 OBJDIR=$(shell realpath obj)
 OBJS = $(addprefix $(OBJDIR)/,large_page_example.o)
-LDFLAGS = -Wl,-T ../ld.implicit.script -fsanitize=address
+LDFLAGS = -Wl,-T ../ld.implicit.script
+# -lstdc++
 
 .PHONY: all
 all: large_page_example
